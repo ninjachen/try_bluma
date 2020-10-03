@@ -143,7 +143,7 @@ function fetch_chart_api(question_url) {
 	.then(resp => {
 		console.log("promise finished, resp is ", resp)
 		if(resp.code !== null && resp.code === 0) {
-			alert("获取图标接口成功");
+			// alert("获取图标接口成功");
 			renderChart(resp.data, document.querySelector("#chart_container"));
 		} else {
 			if(resp && resp.msg) {
