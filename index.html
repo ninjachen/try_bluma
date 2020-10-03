@@ -32,13 +32,17 @@
       </div>
     </div>
   </section>
-  <!-- list -->
+  
   <div class="container" style="padding: 1em;">
     <section class="hero">
     <div class="control" style="padding-top: 0.5em;padding-bottom: 0.5em;">
       <button id ="add_question" class="button is-link" style="float: right">添加问题</button>
     </div>
     </section>
+
+    <!-- chart -->
+    <div id="chart_container" style="display: inline-block; width: 1200px; height: 500px;"></div>
+    <!-- list -->
     <div class="table-container">
       <table class="table is-fullwidth is-scrollable"  style="max-height: 45%;">
         <template id="table_row_temp">
@@ -62,38 +66,10 @@
         </thead>
 
         <tbody id="table_body">
-          <!-- 
-                <tr>
-                  <th><a target="_blank" href="https://www.zhihu.com/question/22281225">浴霸哪个牌子好？</a></th>
-                  <td><strong>1234</strong></td>
-                  <td><strong>2020-09-30 10:00</strong></td>
-                </tr>
-                <tr>
-                  <th><a target="_blank" href="https://www.zhihu.com/question/22281225">浴霸哪个牌子好？</a></th>
-                  <td><strong>1234</strong></td>
-                  <td><strong>2020-09-30 10:00</strong></td>
-                </tr>
-                <tr>
-                  <th><a target="_blank" href="https://www.zhihu.com/question/22281225">浴霸哪个牌子好？</a></th>
-                  <td><strong>1234</strong></td>
-                  <td><strong>2020-09-30 10:00</strong></td>
-                </tr>
-                <tr>
-                  <th><a target="_blank" href="https://www.zhihu.com/question/22281225">浴霸哪个牌子好？</a></th>
-                  <td><strong>1234</strong></td>
-                  <td><strong>2020-09-30 10:00</strong></td>
-                </tr>
-                <tr>
-                  <th><a target="_blank" href="https://www.zhihu.com/question/22281225">浴霸哪个牌子好？</a></th>
-                  <td><strong>1234</strong></td>
-                  <td><strong>2020-09-30 10:00</strong></td>
-                </tr> -->
-
         </tbody>
       </table>
     </div>
-    <!-- chart -->
-    <div id="chart_container" style="display: inline-block; width: 1200px; height: 500px;"></div>
+  
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts.min.js"></script>
   <!-- <script type="text/javascript" src="echarts.js"></script> -->
