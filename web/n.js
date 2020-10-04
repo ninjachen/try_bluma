@@ -1,4 +1,4 @@
-var end_point_url = "http://35.194.149.184/api";
+var end_point_url = "https://zizi.rnp.app/api";
 var token = window.location.hash ? null : window.location.hash.substr(1);
 
 let common_request = obj => {
