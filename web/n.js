@@ -160,17 +160,25 @@ function renderChart(chartData, dom) {
 	var xList = chartData.x_list;
 	// var dataList = [820, 932, 901, 934, 1290, 1330, 1320];
 	var dataList = chartData.data_list;
+	console.log("before yM1111in is " +  Math.min.apply(null, dataList));
+	var yMin = Math.min.apply(null, dataList);
+	var yMax = Math.max.apply(null, dataList);
+	var yDelta = yMax - yMin;
+	console.log("before yMin is " + yMin);
+	console.log("before ymax is " + yMax);
+	yMax= yMax+yDelta*0.5;
+	yMin= yMin-yDelta*0.5;
+	yMax = yMax > 1000 ? Math.ceil(yMax/1000+1)*1000 : Math.ceil(yMax/10+1)*10;
+	yMin = yMin > 1000 ? Math.floor(yMin/1000)*1000 : Math.ceil(yMin/10+1)*10;
+	console.log("after ymax is " + yMax);
+	console.log("after yMin is " + yMin);
 
+
+	var delta = (yMax - yMin);
+	var yInteval = delta/10;
 	var mychart  = echarts.init(dom);
 	var option = {
 		tooltip: {
-			triger: "axis",
-			axisPointer: {
-				type: "cross",
-				crossStyle: {
-					color: "#999"
-				}
-			}
 		},
 		xAxis: {
 			type: 'category',
@@ -179,13 +187,21 @@ function renderChart(chartData, dom) {
 		},
 		yAxis: {
 			type: 'value',
-			name: "浏览量"
+			name: "浏览量",
+			min: yMin,
+			max: yMax
 		},
 		series: [{
-			data: dataList,
-			type: 'line',
-			areaStyle: {}
+			name: '浏览量',
+			type: 'bar',
+			data: dataList
 		}]
+
+		// series: [{
+		// 	data: dataList,
+		// 	type: 'line',
+		// 	areaStyle: {}
+		// }]
 	};
 	mychart.setOption(option, true);
 }
