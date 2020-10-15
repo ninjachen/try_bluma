@@ -191,17 +191,17 @@ function renderChart(chartData, dom) {
 			min: yMin,
 			max: yMax
 		},
-		series: [{
-			name: '浏览量',
-			type: 'bar',
-			data: dataList
-		}]
-
 		// series: [{
-		// 	data: dataList,
-		// 	type: 'line',
-		// 	areaStyle: {}
+		// 	name: '浏览量',
+		// 	type: 'bar',
+		// 	data: dataList
 		// }]
+
+		series: [{
+			data: dataList,
+			type: 'line',
+			areaStyle: {}
+		}]
 	};
 	mychart.setOption(option, true);
 }
