@@ -168,8 +168,8 @@ function renderChart(chartData, dom) {
 	console.log("before ymax is " + yMax);
 	yMax= yMax+yDelta*0.5;
 	yMin= yMin-yDelta*0.5;
-	yMax = yMax > 1000 ? Math.ceil(yMax/1000+1)*1000 : Math.ceil(yMax/10+1)*10;
-	yMin = yMin > 1000 ? Math.floor(yMin/1000)*1000 : Math.ceil(yMin/10+1)*10;
+	// yMax = yMax > 1000 ? Math.ceil(yMax/1000+1)*1000 : Math.ceil(yMax/10+1)*10;
+	// yMin = yMin > 1000 ? Math.floor(yMin/1000)*1000 : Math.ceil(yMin/10+1)*10;
 	console.log("after ymax is " + yMax);
 	console.log("after yMin is " + yMin);
 
@@ -179,6 +179,7 @@ function renderChart(chartData, dom) {
 	var mychart  = echarts.init(dom);
 	var option = {
 		tooltip: {
+			show: true
 		},
 		xAxis: {
 			type: 'category',
@@ -189,7 +190,14 @@ function renderChart(chartData, dom) {
 			type: 'value',
 			name: "浏览量",
 			min: yMin,
-			max: yMax
+			max: yMax,
+			axisLine:{  
+				lineStyle:{  
+					color:'#4A5675',  
+					// width:2  
+				},
+				show: true 
+			}
 		},
 		// series: [{
 		// 	name: '浏览量',
@@ -199,8 +207,22 @@ function renderChart(chartData, dom) {
 
 		series: [{
 			data: dataList,
-			type: 'line',
-			areaStyle: {}
+			type: 'bar',
+			barWidth:30,
+			areaStyle: {},
+			large: true
+			// itemStyle: {
+			// 	normal: {
+			// 		label: {
+			// 			show: true, //开启显示
+			// 			position: 'top', //在上方显示
+			// 			textStyle: { //数值样式
+			// 				color: 'black',
+			// 				fontSize: 16
+			// 			}
+			// 		}
+			// 	}
+			// },
 		}]
 	};
 	mychart.setOption(option, true);
@@ -215,7 +237,7 @@ function main() {
 		console.log("has hash");
 	}
 	if(!token) {
-		console.log("ninjas没有登陆");
+		console.log("milo没有登陆");
 	}
 	// init listener
 	init_listener();
